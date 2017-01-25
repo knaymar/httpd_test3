@@ -1,0 +1,5 @@
+---
+- name: restart dns server
+  service: name=named state=restarted
+- name: Restart Firewall
+  service: name=firewalld state=reload

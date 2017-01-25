@@ -1,0 +1,15 @@
+---
+- name: Installs webserver
+  yum: pkg=httpd state=latest
+- name: Started the web server service   
+  service: name=httpd state=started
+- name: create a direction
+  file: path=/var/www/html/ansible.test state=directory
+- name: Copy files to the root
+  copy: src=Ansible_logo.png dest=/var/www/html/Ansible_logo.png
+- name: Copy application code to document root  
+  template: src={{item.src}} dest={{item.dest}}
+  with_items:
+  - {src: 'roles/webserver/templates/index.html.j2', dest: '/var/www/html/ansible.test/index.html'}
+  notify: 
+   - restart apache

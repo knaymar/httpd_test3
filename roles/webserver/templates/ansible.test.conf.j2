@@ -1,0 +1,9 @@
+<VirtualHost 192.168.254.173:80>
+
+  ServerName ansible.test:80
+  ServerAlias ansible.test
+  DocumentRoot /var/www/html/ansible.test
+  ErrorLog /var/www/html/ansible.test/error.log
+  CustomLog /var/www/html/ansible.test/access.log combined
+
+</VirtualHost>
