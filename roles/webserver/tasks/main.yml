@@ -2,7 +2,7 @@
 - name: Installs webserver
   yum: pkg=httpd state=latest
 - name: Installs DB
-  yum: pkg=mysql state=latest
+  yum: pkg=keepalive state=latest
 - name: Started the web server service   
   service: name=httpd state=started
 - name: create a direction
